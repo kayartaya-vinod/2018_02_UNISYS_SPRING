@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CORS Demo</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+	<script type="text/javascript">
+		
+		$(function(){
+			// DOM ready event
+			$("#btnGetData").click(function(){
+				
+				$.ajax({
+					url: "http://localhost:9999/rest/contacts",
+					data: {
+						city: $("#city").val()
+					},
+					method: "GET",
+					dataType: "json",
+					success: function(data){
+						console.log(data);
+					},
+					error: function(err){
+						console.error(err);
+					}
+				});
+
+
+			});
+		});
+
+
+	</script>
+</head>
+<body>
+	
+	<div class="container">
+		
+		<h1>CORS Demo</h1>
+		<hr>
+
+		<div>
+			<input type="text" 
+				placeholder="Enter city" 
+			class="form-control" id="city">
+			<br><br>
+			<button class="btn btn-success" id="btnGetData">Get data</button>
+		</div>
+
+		<div>
+			
+			<table class="table table-stirped table-bordered">
+				
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>City</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+
+			</table>
+
+		</div>
+	</div>
+
+</body>
+</html>

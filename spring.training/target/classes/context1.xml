@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="spring.training.repository" />
+	<context:component-scan base-package="spring.training.web" />
+
+	<bean id="gr1" class="spring.training.model.Greet" scope="prototype">
+	</bean>
+	
+	<bean name="gr2,greeting2,gr-2" class="spring.training.model.Greet">
+	
+		<!-- property injection (via setters) -->
+		<property name="message" value="Welcome to Spring Framework!" />
+		<property name="user" value="KVinod" />
+		<property name="Venue" value="Unisys, Bangalore" />
+	</bean>
+	
+	<bean name="gr3" class="spring.training.model.Greet">
+		<constructor-arg value="Howdy!" />
+		<constructor-arg value="Kumar" />
+	</bean>
+
+
+</beans>
